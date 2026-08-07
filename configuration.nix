@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./irendy-packages.nix
+      ./users/irendy/irendy-packages.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -161,6 +161,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.auto-cpufreq.enable = true;
+  
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 8080 ];
   networking.firewall.allowedUDPPorts = [ 8080 ];

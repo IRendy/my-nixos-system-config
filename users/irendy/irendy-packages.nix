@@ -84,8 +84,8 @@
       inherit (pkgs.yaziPlugins) mount git rsync sshfs;
     };
     settings = {
-      yazi = lib.importTOML ./pkgs/yazi/settings.toml;
-      keymap = lib.importTOML ./pkgs/yazi/keymap.toml;
+      yazi = lib.importTOML ../../pkgs/yazi/settings.toml;
+      keymap = lib.importTOML ../../pkgs/yazi/keymap.toml;
     };
   };
   networking.hosts = {
