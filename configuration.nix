@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./users/irendy/irendy-packages.nix
+      ./users/irendy/irendy-configuration.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
