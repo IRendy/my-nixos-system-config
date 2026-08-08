@@ -34,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   installPhase = ''
-    install -D -m 755 ncmdump $out/bin/
+    install -Dm755 ncmdump $out/bin/ncmdump
   '';
 
   meta = {
@@ -45,9 +45,10 @@ stdenv.mkDerivation (finalAttrs: {
     maintainers = [ "IRendy" ];
     # maintainers = with lib.maintainers; [
     # ];
-    platforms = with lib.platforms; [
-      unix
-      darwin
-    ];
+    # platforms = with lib.platforms; [
+    #   unix
+    #   darwin
+    # ];
+    platforms = lib.platforms.unix ++ lib.platforms.darwin;
   };
 })

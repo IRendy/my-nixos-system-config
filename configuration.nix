@@ -162,6 +162,18 @@
   services.openssh.enable = true;
 
   services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "nerver";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+  powerManagement.enable = true;
+  services.thermald.enable = true;
   
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 8080 ];
@@ -198,7 +210,7 @@
     "https://mirror.nju.edu.cn/nix-channels/store"
     "https://mirror.sjtu.edu.cn/nix-channels/store"
     "https://mirrors.ustc.edu.cn/nix-channels/store"
-    "https://mirrors.cqupt.edu.cn/nix-channels/store"
+    # "https://mirrors.cqupt.edu.cn/nix-channels/store"
   ];
 
   system.stateVersion = "26.05";

@@ -53,6 +53,8 @@
       unrar
 
       # etc.
+      ncmdump
+      ch341ser
      
     ]) ++ (with pkgs.perl5Packages; [
       DateTime
@@ -62,6 +64,13 @@
       haskell-language-server
     ]);
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      ncmdump = final.callPackage ../../pkgs/ncmdump/package.nix {};
+      ch341ser = final.callPackage ../../pkgs/ch341ser/package.nix {};
+    })
+  ];
   programs.tcpdump.enable = true;
   programs.arp-scan.enable = true;
   programs.traceroute.enable = true;

@@ -21,6 +21,6 @@
         }
       ];
     };
-    packages.x86_64-linux.ncmdump = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/ncmdump/package.nix {};
+    # packages.x86_64-linux.ncmdump = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/ncmdump/package.nix {};
   };
 }
