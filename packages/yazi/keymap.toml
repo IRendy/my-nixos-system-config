@@ -1,4 +1,0 @@
-[[mgr.prepend_keymap]]
-on = [ "R" ]
-run = "plugin rsync"
-desc = "Copy files using rsync"
