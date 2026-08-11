@@ -97,8 +97,8 @@
     # octave
     # wolfram-engine
     #trustedqsl # amateur radio
-    unixcw
-    aldo
+    # unixcw
+    # aldo
 
   ];
   home.pointerCursor = {

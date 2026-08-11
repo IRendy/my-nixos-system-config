@@ -8,6 +8,9 @@
 stdenv.mkDerivation (finalAttrs: {
   pname = "ncmdump";
   version = "1.5.1";
+
+  __structedAttrs = true;
+
   src = fetchurl {
     url = "https://github.com/taurusxin/ncmdump/releases/download/${finalAttrs.version}/ncmdump-${finalAttrs.version}-${
       if stdenv.isLinux then
@@ -44,10 +47,6 @@ stdenv.mkDerivation (finalAttrs: {
     mainProgram = "ncmdump";
     maintainers = [ "IRendy" ];
     # maintainers = with lib.maintainers; [
-    # ];
-    # platforms = with lib.platforms; [
-    #   unix
-    #   darwin
     # ];
     platforms = lib.platforms.unix ++ lib.platforms.darwin;
   };

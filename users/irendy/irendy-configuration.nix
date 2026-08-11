@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ../../pkgs
+  ];
   users.users.irendy = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "networkmanager" ];
@@ -38,6 +41,7 @@
       libnotify
       udiskie
       xprop
+      chromium
       # nomacs
 
       vscodium # editor
@@ -52,8 +56,11 @@
       rar
       unrar
 
+      flatpak # pkgs manager
+      
       # etc.
       ncmdump
+      ncmdump-go
       ch341ser
      
     ]) ++ (with pkgs.perl5Packages; [
@@ -65,17 +72,11 @@
     ]);
   };
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      ncmdump = final.callPackage ../../pkgs/ncmdump/package.nix {};
-      ch341ser = final.callPackage ../../pkgs/ch341ser/package.nix {};
-    })
-  ];
   programs.tcpdump.enable = true;
   programs.arp-scan.enable = true;
   programs.traceroute.enable = true;
   programs.firefox.enable = true;
-  # programs.chromium.enable = true;
+  programs.chromium.enable = true;
   programs.steam = {
     enable = true;
   };
@@ -100,6 +101,7 @@
   networking.hosts = {
     "101.42.138.7" = ["server1"];
   };
+  services.flatpak.enable = true;
   # services.nginx.enable = true;
   # services.mongodb.enable = true;
   # services.gns3-server = {
