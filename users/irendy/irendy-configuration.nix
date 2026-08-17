@@ -93,12 +93,9 @@
   programs.yazi = {
     enable = true;
     plugins = {
-      inherit (pkgs.yaziPlugins) mount git rsync sshfs;
+      inherit (pkgs.yaziPlugins) mount  lazygit smart-enter;
     };
-    settings = {
-      yazi = lib.importTOML ../../pkgs/yazi/settings.toml;
-      keymap = lib.importTOML ../../pkgs/yazi/keymap.toml;
-    };
+    settings = import ../../pkgs/yazi/settings.nix;
   };
   networking.hosts = {
     "101.42.138.7" = ["server1"];
