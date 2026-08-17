@@ -57,6 +57,8 @@
       unrar
 
       flatpak # pkgs manager
+
+      # libuchardet # tools
       
       # etc.
       ncmdump

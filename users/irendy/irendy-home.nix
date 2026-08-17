@@ -46,6 +46,7 @@
     # blender aseprite
     #claude-code # agent
 
+    # emacs # editor
 
     wpsoffice-cn # office
     libreoffice
@@ -57,7 +58,8 @@
     ffmpeg
     resvg
     jq
-    poppler
+    # poppler
+    poppler-utils
     ripgrep
     fzf
     imagemagick
@@ -72,6 +74,7 @@
     eza
     lazygit
     tmux
+    glow
     font-manager
     qbittorrent # entertainment
     netease-cloud-music-gtk
@@ -105,6 +108,19 @@
     x11.enable = true;
     name = "Vanilla-DMZ";
     package = pkgs.vanilla-dmz;
+  };
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+    extraPackages = epkgs: [
+      epkgs.nix-mode
+      epkgs.nixfmt
+      epkgs.meow
+    #   epkgs.magit
+    ];
+    extraConfig = ''
+      (setq standard-indent 2)
+    '';
   };
   # programs.git = {
   #   enable = true;

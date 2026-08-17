@@ -9,5 +9,6 @@
     "com.tencent.WeChat"
     "com.qq.QQ"
     "com.baidu.NetDisk"
+    "com.dingtalk.DingTalk"
   ];
 }
