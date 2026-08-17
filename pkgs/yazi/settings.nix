@@ -1,7 +1,10 @@
 {
   yazi = {
     mgr.sort_by = "natural";
-    tasks.image_bound = [0 0];
+    tasks.image_bound = [
+      0
+      0
+    ];
   };
   keymap = {
     mgr.prepend_keymap = [
@@ -12,12 +15,18 @@
       }
       {
         desc = "run lazygit";
-        on = [ "g" "i" ];
+        on = [
+          "g"
+          "i"
+        ];
         run = "plugin lazygit";
       }
       {
         desc = "run mount";
-        on = [ "M" "m" ];
+        on = [
+          "M"
+          "m"
+        ];
         run = "plugin mount";
       }
       # {
@@ -27,7 +36,7 @@
       # }
     ];
   };
-  theme = {};
+  theme = { };
   vfs = {
     my-server1 = {
       host = "server1";

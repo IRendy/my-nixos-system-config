@@ -2,13 +2,18 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./users/irendy/irendy-configuration.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./users/irendy/irendy-configuration.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -96,7 +101,7 @@
   };
 
   programs.nix-ld.enable = true;
-  
+
   virtualisation.docker = {
     enable = true;
   };
@@ -140,7 +145,7 @@
     wget
     git
   ];
-  
+
   environment.sessionVariables = {
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
@@ -174,7 +179,7 @@
   };
   powerManagement.enable = true;
   services.thermald.enable = true;
-  
+
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 8080 ];
   networking.firewall.allowedUDPPorts = [ 8080 ];
@@ -204,7 +209,10 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.substituters = [
     "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
     "https://mirror.nju.edu.cn/nix-channels/store"
@@ -215,4 +223,3 @@
 
   system.stateVersion = "26.05";
 }
-

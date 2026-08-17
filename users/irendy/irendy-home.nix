@@ -11,7 +11,7 @@
     net-tools
     wireshark
     bind
-    
+
     uv # dev
     ruff
     nixfmt
@@ -63,11 +63,11 @@
     ripgrep
     fzf
     imagemagick
-    
+
     ranger # btw
     dust
     obs-studio
-    fzf# improve
+    fzf # improve
     zoxide
     just
     fd
@@ -88,7 +88,7 @@
     # cowsay
     # figlet
     # toilet
-    
+
     anki-bin # study
     stellarium
     qgis
@@ -113,7 +113,7 @@
     enable = true;
     package = pkgs.emacs;
     extraPackages = epkgs: [
-    #   epkgs.magit
+      #   epkgs.magit
     ];
     extraConfig = ''
       (setq standard-indent 2)
@@ -133,4 +133,3 @@
 
   programs.home-manager.enable = true;
 }
-

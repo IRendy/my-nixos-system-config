@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -6,72 +11,78 @@
   ];
   users.users.irendy = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" ];
-    packages =  (with pkgs; [
-      zsh # system
-      iwd
-      fastfetch
-      brightnessctl
-      pavucontrol
-      libpulseaudio
-      pulseaudio
-      # portaudio
-      usbutils
-      pciutils
-      btop    
-      tree
-      sqlite
-      xev
-      acpi
-      inxi # hardware test
-      lshw
+    extraGroups = [
+      "wheel"
+      "docker"
+      "networkmanager"
+    ];
+    packages =
+      (with pkgs; [
+        zsh # system
+        iwd
+        fastfetch
+        brightnessctl
+        pavucontrol
+        libpulseaudio
+        pulseaudio
+        # portaudio
+        usbutils
+        pciutils
+        btop
+        tree
+        sqlite
+        xev
+        acpi
+        inxi # hardware test
+        lshw
 
-      bluetui # bluetooth
+        bluetui # bluetooth
 
-      bspwm # desktop
-      sxhkd
-      kitty
-      picom
-      polybar
-      dunst
-      feh
-      rofi
-      xclip
-      flameshot
-      libnotify
-      udiskie
-      xprop
-      chromium
-      # nomacs
+        bspwm # desktop
+        sxhkd
+        kitty
+        picom
+        polybar
+        dunst
+        feh
+        rofi
+        xclip
+        flameshot
+        libnotify
+        udiskie
+        xprop
+        chromium
+        # nomacs
 
-      vscodium # editor
-      # emacs
-      helix
-      neovim
+        vscodium # editor
+        # emacs
+        helix
+        neovim
 
-      
-      p7zip  # archive
-      zip
-      unzip
-      rar
-      unrar
+        p7zip # archive
+        zip
+        unzip
+        rar
+        unrar
 
-      flatpak # pkgs manager
+        flatpak # pkgs manager
 
-      # libuchardet # tools
-      
-      # etc.
-      ncmdump
-      ncmdump-go
-      ch341ser
-     
-    ]) ++ (with pkgs.perl5Packages; [
-      DateTime
-    ]) ++ (with pkgs.haskellPackages; [
-      ghc
-      cabal-install
-      haskell-language-server
-    ]);
+        # libuchardet # tools
+
+        # etc.
+        ncmdump
+        ncmdump-go
+        ch341ser
+
+      ])
+      ++ (with pkgs.perl5Packages; [
+        DateTime
+      ])
+      ++ (with pkgs.haskellPackages; [
+        ghc
+        cabal-install
+        haskell-language-server
+      ]);
   };
 
   programs.tcpdump.enable = true;
@@ -93,12 +104,12 @@
   programs.yazi = {
     enable = true;
     plugins = {
-      inherit (pkgs.yaziPlugins) mount  lazygit smart-enter;
+      inherit (pkgs.yaziPlugins) mount lazygit smart-enter;
     };
     settings = import ../../pkgs/yazi/settings.nix;
   };
   networking.hosts = {
-    "101.42.138.7" = ["server1"];
+    "101.42.138.7" = [ "server1" ];
   };
   services.flatpak.enable = true;
   # services.nginx.enable = true;
@@ -116,4 +127,3 @@
   # };
 
 }
-
