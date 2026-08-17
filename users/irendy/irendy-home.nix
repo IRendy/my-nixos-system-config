@@ -113,14 +113,15 @@
     enable = true;
     package = pkgs.emacs;
     extraPackages = epkgs: [
-      epkgs.nix-mode
-      epkgs.nixfmt
-      epkgs.meow
     #   epkgs.magit
     ];
     extraConfig = ''
       (setq standard-indent 2)
     '';
+  };
+  programs.helix = {
+    enable = true;
+    extraPackages = [ pkgs.marksman ];
   };
   # programs.git = {
   #   enable = true;
