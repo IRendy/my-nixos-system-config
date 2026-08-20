@@ -47,6 +47,7 @@
     #claude-code # agent
 
     # emacs # editor
+    tree-sitter
 
     wpsoffice-cn # office
     libreoffice

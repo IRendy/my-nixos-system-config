@@ -8,11 +8,11 @@
   };
   keymap = {
     mgr.prepend_keymap = [
-      {
-        desc = "Enter the child directory, or open the file";
-        on = "l";
-        run = "plugin smart-enter";
-      }
+      # {
+      #   desc = "Enter the child directory, or open the file";
+      #   on = "l";
+      #   run = "plugin smart-enter";
+      # }
       {
         desc = "run lazygit";
         on = [

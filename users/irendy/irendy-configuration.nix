@@ -35,6 +35,9 @@
         acpi
         inxi # hardware test
         lshw
+        gnupg # Privacy
+        # pinentry-all
+        pinentry-rofi
 
         bluetui # bluetooth
 
@@ -104,7 +107,7 @@
   programs.yazi = {
     enable = true;
     plugins = {
-      inherit (pkgs.yaziPlugins) mount lazygit smart-enter;
+      inherit (pkgs.yaziPlugins) mount lazygit;
     };
     settings = import ../../pkgs/yazi/settings.nix;
   };
