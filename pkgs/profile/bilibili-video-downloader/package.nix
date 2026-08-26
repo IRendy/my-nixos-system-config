@@ -76,6 +76,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/lanyeeee/bilibili-video-downloader";
     license = lib.licenses.mit;
     mainProgram = "bilibili-video-downloader";
+    platforms = lib.platforms.all;
     maintainers = [ "IRendy" ];
   };
 })

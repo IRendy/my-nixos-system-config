@@ -36,6 +36,6 @@ buildGoModule rec {
     license = lib.licenses.mit;
     mainProgram = "ncmdump-go";
     maintainers = [ "IRendy" ];
-    platforms = lib.platforms.unix;
+    platforms = lib.platforms.all;
   };
 }

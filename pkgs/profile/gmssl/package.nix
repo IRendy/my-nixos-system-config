@@ -20,6 +20,7 @@ stdenv.mkDerivation (finalAttrs: {
   meta = {
     description = "支持国密SM2/SM3/SM4/SM9/SSL的密码工具箱";
     homepage = "https://github.com/guanzhi/GmSSL";
+    platforms = lib.platforms.all;
     maintainers = [ "IRendy" ];
   };
 })

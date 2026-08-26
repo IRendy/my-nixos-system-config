@@ -12,6 +12,20 @@
     wireshark
     bind
 
+    cyberchef # ctf
+    stegsolve
+    qrrs
+    qrtool
+    zbar
+
+    hexyl # hex viewer
+    hexedit # hex editor
+    sxiv # image viewer
+    imv
+
+    gimp # image editor
+    # krita
+
     uv # dev
     ruff
     nixfmt
@@ -51,9 +65,6 @@
 
     wpsoffice-cn # office
     libreoffice
-    gimp
-    # wechat-uos # IM
-    # wechat
     # yazi # yazi
     file
     ffmpeg
@@ -64,6 +75,7 @@
     ripgrep
     fzf
     imagemagick
+    qrcp
 
     ranger # btw
     dust
@@ -85,7 +97,6 @@
     audacious
     cmatrix
     termusic
-    # activate-linux
     # cowsay
     # figlet
     # toilet

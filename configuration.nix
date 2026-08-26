@@ -135,6 +135,7 @@
     wine64Packages.fonts
     nerd-fonts.symbols-only
     font-awesome_6
+    open-sans
   ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
 
@@ -181,8 +182,9 @@
   services.thermald.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8080 ];
-  networking.firewall.allowedUDPPorts = [ 8080 ];
+  # 8080 HTTP, 53318 qrcp
+  networking.firewall.allowedTCPPorts = [ 8080 53318 ];
+  networking.firewall.allowedUDPPorts = [ 8080 53318 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
