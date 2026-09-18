@@ -17,11 +17,18 @@
     qrrs
     qrtool
     zbar
+    (cutter.withPlugins (
+      ps: with ps; [
+        jsdec
+        rz-ghidra
+      ]
+    ))
+    radare2
+    ghidra
 
     hexyl # hex viewer
     hexedit # hex editor
     sxiv # image viewer
-    imv
 
     gimp # image editor
     # krita
@@ -34,21 +41,36 @@
     gnumake
     azure-sdk-for-cpp.cmake
     xmake
-    python314
-    python314Packages.tkinter
+    (python314.withPackages (
+      python-pkgs: with python-pkgs; [
+        xlrd
+        openpyxl
+        pandas
+        numpy
+        polars
+        dask
+        pyarrow
+        matplotlib
+        numba
+        tkinter
+      ]
+    ))
     zig
     rustup
     nodejs
     pnpm
     android-tools
+    apktool
+    apksigner
     jdk
     go
     marksman
     ruby
     lua
-    cargo-tauri
-    openssl # web dev
-    # mongodb
+    racket
+    purescript
+    openssl # cybersafe
+    # mongodb # web dev
     # nginx
     # virtualbox
     # chromium
@@ -75,7 +97,6 @@
     ripgrep
     fzf
     imagemagick
-    qrcp
 
     ranger # btw
     dust
@@ -87,11 +108,12 @@
     eza
     lazygit
     tmux
-    glow
-    font-manager
-    qbittorrent # entertainment
+    zellij
+
+    # qbittorrent # entertainment
+    qbittorrent-enhanced
     netease-cloud-music-gtk
-    yacreader
+    yacreader # manga
     # osdlyrics
     mpv
     audacious
@@ -100,6 +122,10 @@
     # cowsay
     # figlet
     # toilet
+    gnugo # game
+    lutris
+    wineWow64Packages.stable
+    winetricks
 
     anki-bin # study
     stellarium

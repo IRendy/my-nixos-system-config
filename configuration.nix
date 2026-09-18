@@ -125,6 +125,10 @@
     arkpandora_ttf
     lxgw-neoxihei
     jetbrains-mono
+    # noto-fonts-cjk
+    # source-han-sans
+    # source-han-sans-japanese
+    # source-han-serif-japanese
 
     vista-fonts
     carlito
@@ -217,10 +221,11 @@
   ];
   nix.settings.substituters = [
     "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    "https://mirrors.ustc.edu.cn/nix-channels/store"
+    "https://mirrors.cernet.edu.cn/nix-channels/store"
+    "https://mirrors.cqupt.edu.cn/nix-channels/store"
     "https://mirror.nju.edu.cn/nix-channels/store"
     "https://mirror.sjtu.edu.cn/nix-channels/store"
-    "https://mirrors.ustc.edu.cn/nix-channels/store"
-    # "https://mirrors.cqupt.edu.cn/nix-channels/store"
   ];
 
   system.stateVersion = "26.05";

@@ -33,6 +33,7 @@
         sqlite
         xev
         acpi
+        ntfs3g
         inxi # hardware test
         lshw
         gnupg # Privacy
@@ -61,8 +62,11 @@
         # emacs
         helix
         neovim
+        xan
+        csvlens
 
         p7zip # archive
+        peazip
         zip
         unzip
         rar
@@ -87,6 +91,9 @@
         haskell-language-server
       ]);
   };
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-1.1.12"
+  ];
 
   programs.tcpdump.enable = true;
   programs.arp-scan.enable = true;
@@ -115,6 +122,8 @@
     "101.42.138.7" = [ "server1" ];
   };
   services.flatpak.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  boot.supportedFilesystems = [ "ntfs" ];
   # services.nginx.enable = true;
   # services.mongodb.enable = true;
   # services.gns3-server = {
