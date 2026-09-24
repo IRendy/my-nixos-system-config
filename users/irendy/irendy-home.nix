@@ -111,8 +111,7 @@
     tmux
     zellij
 
-    # qbittorrent # entertainment
-    qbittorrent-enhanced
+    qbittorrent # entertainment
     netease-cloud-music-gtk
     yacreader # manga
     # osdlyrics
@@ -120,7 +119,9 @@
     audacious
     cmatrix
     termusic
+    deadbeef
     # cowsay
+    # ponysay
     # figlet
     # toilet
     gnugo # game
