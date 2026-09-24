@@ -19,6 +19,8 @@
     packages =
       (with pkgs; [
         zsh # system
+        fish
+        elvish
         iwd
         fastfetch
         brightnessctl
@@ -45,8 +47,13 @@
         bspwm # desktop
         sxhkd
         kitty
+        alacritty
         picom
         polybar
+        wl-clipboard # wayland sway
+        swaybg
+        waybar
+        mako
         dunst
         feh
         rofi
@@ -95,6 +102,10 @@
     "ventoy-1.1.12"
   ];
 
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
   programs.tcpdump.enable = true;
   programs.arp-scan.enable = true;
   programs.traceroute.enable = true;

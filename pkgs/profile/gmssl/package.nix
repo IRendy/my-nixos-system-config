@@ -18,7 +18,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [ cmake ];
   meta = {
-    description = "支持国密SM2/SM3/SM4/SM9/SSL的密码工具箱";
+    description = "支持国密SM2/SM3/SM4/SM9/SSL的密码工具箱(A cryptographic toolkit supporting national cryptographic algorithms SM2, SM3, SM4, SM9, and SSL.)";
     homepage = "https://github.com/guanzhi/GmSSL";
     platforms = lib.platforms.all;
     maintainers = [ "IRendy" ];
