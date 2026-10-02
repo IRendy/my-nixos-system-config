@@ -70,6 +70,7 @@
     lua
     racket
     purescript
+    flutter
     openssl # cybersafe
     # mongodb # web dev
     # nginx
@@ -142,6 +143,8 @@
     #trustedqsl # amateur radio
     # unixcw
     # aldo
+
+    gnucash # finance
 
   ];
   home.pointerCursor = {

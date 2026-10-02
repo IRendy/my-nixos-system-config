@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./flatpack
+    # ./flatpack
   ];
   nixpkgs.overlays = [
     (final: prev: {

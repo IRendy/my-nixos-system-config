@@ -18,7 +18,7 @@
     ];
     packages =
       (with pkgs; [
-        zsh # system
+        # zsh # system
         fish
         elvish
         iwd
@@ -102,6 +102,47 @@
     "ventoy-1.1.12"
   ];
 
+  programs.zsh = {
+    enable = true;
+    autosuggestions.enable = true;
+    ohMyZsh = {
+      enable = true;
+      theme = "michelebologna";
+      plugins = [
+        "sudo"
+        "git"
+        "zoxide"
+        "eza"
+        "fzf"
+        "extract"
+        "z"
+      ];
+    };
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      cls = "clear";
+      lgens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      delgens = "sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system";
+    };
+    shellInit = ''
+      export DEFAULT_USER="$USER"
+      export EDITOR='hx'
+      zstyle ':omz:update' mode disabled
+      function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
+   '';
+   # interactiveShellInit = ''
+   #    export PATH=/run/wrappers/bin:/run/current-system/sw/bin:$HOME/.nix-profile/bin:$PATH
+   #    export PATH=~/.npm-global/bin:~/.cargo/bin:~/.local/bin:~/go/bin$PATH
+   #   '';
+
+  };
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;

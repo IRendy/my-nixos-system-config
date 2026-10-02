@@ -2,9 +2,7 @@
   description = "A very basic flake";
 
   nixConfig = {
-    # override the default substituters
     substituters = [
-      # cache mirror located in China
       # status: https://mirror.sjtu.edu.cn/
       # status: https://mirrors.ustc.edu.cn/status/
       "https://mirrors.ustc.edu.cn/nix-channels/store"
@@ -28,7 +26,7 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    # nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs =
@@ -36,13 +34,13 @@
       self,
       nixpkgs,
       home-manager,
-      nix-flatpak,
+      # nix-flatpak,
       ...
     }@inputs:
     {
       nixosConfigurations.irendy-nixos = nixpkgs.lib.nixosSystem {
         modules = [
-          nix-flatpak.nixosModules.nix-flatpak
+          # nix-flatpak.nixosModules.nix-flatpak
 
           ./configuration.nix
 
