@@ -15,6 +15,7 @@
       "wheel"
       "docker"
       "networkmanager"
+      "input"
     ];
     packages =
       (with pkgs; [
@@ -41,8 +42,14 @@
         gnupg # Privacy
         # pinentry-all
         pinentry-rofi
+        # ventoy
+        hledger # finance
+        hledger-web
+        hledger-ui
 
         bluetui # bluetooth
+
+        wifitui # network
 
         bspwm # desktop
         sxhkd
@@ -54,6 +61,8 @@
         swaybg
         waybar
         mako
+        swappy
+        cage # wayland cage
         dunst
         feh
         rofi
@@ -137,10 +146,13 @@
         rm -f -- "$tmp"
       }
    '';
-   # interactiveShellInit = ''
-   #    export PATH=/run/wrappers/bin:/run/current-system/sw/bin:$HOME/.nix-profile/bin:$PATH
-   #    export PATH=~/.npm-global/bin:~/.cargo/bin:~/.local/bin:~/go/bin$PATH
-   #   '';
+   interactiveShellInit = ''
+      export PATH=$HOME/.nix-profile/bin:$PATH
+      export PATH=$HOME/.npm-global/bin:$PATH
+      export PATH=$HOME/.cargo/bin:$PATH
+      export PATH=$HOME/.local/bin:$PATH
+      export PATH=$HOME/go/bin:$PATH
+     '';
 
   };
   programs.sway = {
@@ -157,7 +169,12 @@
   };
   programs.wireshark.enable = true;
   programs.bat.enable = true;
-  programs.clash-verge.enable = true;
+  programs.clash-verge = {
+    enable = true;
+    package = pkgs.clash-verge-rev;
+    serviceMode = true;
+    tunMode = true;
+  };
   programs.thunderbird.enable = true;
   programs.localsend = {
     enable = true;
