@@ -29,6 +29,38 @@
         ];
         run = "plugin mount";
       }
+      {
+        desc = "baidu pan panel";
+        on = [
+          "B"
+          "b"
+        ];
+        run = "plugin baidu -- panel";
+      }
+      {
+        desc = "upload to baidu pan";
+        on = [
+          "B"
+          "u"
+        ];
+        run = "plugin baidu -- upload";
+      }
+      {
+        desc = "download from baidu pan";
+        on = [
+          "B"
+          "d"
+        ];
+        run = "plugin baidu -- download";
+      }
+      {
+        desc = "baidu pan account";
+        on = [
+          "B"
+          "a"
+        ];
+        run = "plugin baidu -- account";
+      }
       # {
       #   desc = "Open SSHFS options";
       #   on = [ "M" "s" ];
@@ -37,11 +69,4 @@
     ];
   };
   theme = { };
-  vfs = {
-    my-server1 = {
-      host = "server1";
-      port = 22;
-      user = "sftpuser";
-    };
-  };
 }

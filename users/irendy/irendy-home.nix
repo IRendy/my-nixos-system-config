@@ -99,6 +99,7 @@
     ripgrep
     fzf
     imagemagick
+    ghostscript
 
     ranger # btw
     dust
@@ -113,6 +114,7 @@
     zellij
 
     qbittorrent # entertainment
+    librewolf
     netease-cloud-music-gtk
     yacreader # manga
     # osdlyrics

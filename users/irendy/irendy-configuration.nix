@@ -58,6 +58,7 @@
         picom
         polybar
         wl-clipboard # wayland sway
+        xwayland
         swaybg
         waybar
         mako
@@ -184,6 +185,7 @@
     enable = true;
     plugins = {
       inherit (pkgs.yaziPlugins) mount lazygit;
+      baidu = ../../pkgs/yazi/plugins/baidu.yazi;
     };
     settings = import ../../pkgs/yazi/settings.nix;
   };
