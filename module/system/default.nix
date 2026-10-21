@@ -95,6 +95,7 @@
     vim
     wget
     git
+    jujutsu
   ];
   environment.sessionVariables = {
     GTK_IM_MODULE = "fcitx";

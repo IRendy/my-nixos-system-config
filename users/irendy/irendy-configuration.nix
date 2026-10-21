@@ -81,6 +81,7 @@
         neovim
         xan
         csvlens
+        visidata
 
         p7zip # archive
         peazip
@@ -94,9 +95,11 @@
         # libuchardet # tools
 
         # etc.
+        # overlays
         ncmdump
         ncmdump-go
         ch341ser
+        emacs-git
 
       ])
       ++ (with pkgs.perl5Packages; [
@@ -146,14 +149,14 @@
         fi
         rm -f -- "$tmp"
       }
-   '';
-   interactiveShellInit = ''
+    '';
+    interactiveShellInit = ''
       export PATH=$HOME/.nix-profile/bin:$PATH
       export PATH=$HOME/.npm-global/bin:$PATH
       export PATH=$HOME/.cargo/bin:$PATH
       export PATH=$HOME/.local/bin:$PATH
       export PATH=$HOME/go/bin:$PATH
-     '';
+    '';
 
   };
   programs.sway = {
