@@ -55,7 +55,8 @@
         pyarrow
         matplotlib
         numba
-        # tkinter
+        tkinter
+        rich
       ]
     ))
     zig
