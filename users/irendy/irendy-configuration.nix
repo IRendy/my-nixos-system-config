@@ -47,6 +47,10 @@
         hledger-web
         hledger-ui
 
+        # dev
+        rustup
+        cargo
+
         bluetui # bluetooth
 
         wifitui # network
@@ -141,6 +145,10 @@
       export DEFAULT_USER="$USER"
       export EDITOR='hx'
       zstyle ':omz:update' mode disabled
+      export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+      export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+      export GO111MODULE=on
+      export GOPROXY=https://goproxy.cn
       function y() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
         yazi "$@" --cwd-file="$tmp"

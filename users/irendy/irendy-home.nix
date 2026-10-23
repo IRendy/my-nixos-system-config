@@ -60,7 +60,6 @@
       ]
     ))
     zig
-    rustup
     nodejs
     pnpm
     android-tools
