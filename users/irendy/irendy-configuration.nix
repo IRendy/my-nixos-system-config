@@ -50,6 +50,63 @@
         # dev
         rustup
         cargo
+        R
+        ruff
+        carapace
+        nixfmt
+        # gcc
+        gfortran
+        gnumake
+        azure-sdk-for-cpp.cmake
+        xmake
+        uv
+        (python314.withPackages (
+          python-pkgs: with python-pkgs; [
+            xlrd
+            openpyxl
+            pandas
+            numpy
+            polars
+            dask
+            pyarrow
+            matplotlib
+            numba
+            tkinter
+            rich
+          ]
+        ))
+        zig
+        nodejs
+        pnpm
+        android-tools
+        aapt
+        apktool
+        apksigner
+        jadx
+        jdk
+        go
+        marksman
+        ruby
+        lua
+        racket
+        purescript
+        flutter
+        openssl # cybersafe
+        # mongodb # web dev
+        # nginx
+        # virtualbox
+        # chromium
+        # hplipWithPlugin # printer
+        # godot # game development
+        # blender aseprite
+        #claude-code # agent
+
+        # emacs # editor
+        tree-sitter
+        prettier
+        libxml2
+        taplo
+        stylua
 
         bluetui # bluetooth
 
@@ -86,6 +143,7 @@
         xan
         csvlens
         visidata
+        onlyoffice-desktopeditors
 
         p7zip # archive
         peazip
