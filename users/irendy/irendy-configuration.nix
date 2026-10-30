@@ -6,9 +6,7 @@
 }:
 
 {
-  imports = [
-    ../../pkgs
-  ];
+  imports = [ ../../pkgs ];
   users.users.irendy = {
     isNormalUser = true;
     extraGroups = [
@@ -48,8 +46,13 @@
         hledger-ui
 
         # dev
-        rustup
+        # rustup
+        rustc
+        rust-analyzer
+        rustfmt
         cargo
+        clippy
+        rustPlatform.rustLibSrc
         R
         ruff
         carapace
@@ -164,18 +167,14 @@
         emacs-git
 
       ])
-      ++ (with pkgs.perl5Packages; [
-        DateTime
-      ])
+      ++ (with pkgs.perl5Packages; [ DateTime ])
       ++ (with pkgs.haskellPackages; [
         ghc
         cabal-install
         haskell-language-server
       ]);
   };
-  nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.12"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.12" ];
 
   programs.zsh = {
     enable = true;
