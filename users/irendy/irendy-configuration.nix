@@ -60,7 +60,7 @@
         # gcc
         gfortran
         gnumake
-        azure-sdk-for-cpp.cmake
+        cmake
         xmake
         uv
         (python314.withPackages (
@@ -69,13 +69,18 @@
             openpyxl
             pandas
             numpy
-            polars
-            dask
-            pyarrow
+            pyyaml
+            flask
+            django
+            beautifulsoup4
+            lxml
+            modelscope
+            tqdm
             matplotlib
-            numba
             tkinter
             rich
+            click
+            loguru
           ]
         ))
         zig
@@ -85,7 +90,6 @@
         aapt
         apktool
         apksigner
-        jadx
         jdk
         go
         marksman
@@ -143,10 +147,8 @@
         # emacs
         helix
         neovim
-        xan
         csvlens
         visidata
-        onlyoffice-desktopeditors
 
         p7zip # archive
         peazip
@@ -163,8 +165,8 @@
         # overlays
         ncmdump
         ncmdump-go
-        ch341ser
-        emacs-git
+        # ch341ser
+        # emacs-git
 
       ])
       ++ (with pkgs.perl5Packages; [ DateTime ])

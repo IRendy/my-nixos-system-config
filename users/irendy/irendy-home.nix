@@ -75,8 +75,8 @@
     # ponysay
     # figlet
     # toilet
-    gnugo # game
-    lutris
+    # gnugo # game
+    # lutris
     wineWow64Packages.stable
     winetricks
 
@@ -86,7 +86,7 @@
     bc
     goldendict-ng
     zotero
-    gogui
+    # gogui
     # gns3-gui
     # octave
     # wolfram-engine
