@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -49,10 +54,49 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
-
-  programs.nix-ld.enable = true;
-  virtualisation.docker = {
+  programs.nix-ld = {
     enable = true;
+    libraries = with pkgs; [
+      fontconfig
+      freetype
+      glib
+      libGL
+      libICE
+      libSM
+      libdrm
+      libgbm
+      libglvnd
+      libpng
+      libpulseaudio
+      libx11
+      libxcb
+      libxcb-cursor
+      libxcb-image
+      libxcb-keysyms
+      libxcb-render-util
+      libxcb-util
+      libxcb-wm
+      libxcomposite
+      libxcursor
+      libxdamage
+      libxext
+      libxfixes
+      libxi
+      libxinerama
+      libxkbcommon
+      libxrender
+      libxshmfence
+      libxtst
+      mesa
+      stdenv.cc.cc.lib
+    ];
+  };
+  virtualisation = {
+    docker.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+    };
   };
 
   fonts.packages = with pkgs; [
@@ -120,8 +164,14 @@
   powerManagement.enable = true;
   # Open ports in the firewall.
   # 8080 HTTP, 53318 qrcp
-  networking.firewall.allowedTCPPorts = [ 8080 53318 ];
-  networking.firewall.allowedUDPPorts = [ 8080 53318 ];
+  networking.firewall.allowedTCPPorts = [
+    8080
+    53318
+  ];
+  networking.firewall.allowedUDPPorts = [
+    8080
+    53318
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   nix.settings.experimental-features = [

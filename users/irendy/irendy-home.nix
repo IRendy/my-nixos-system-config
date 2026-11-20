@@ -77,12 +77,9 @@
     # toilet
     # gnugo # game
     # lutris
-    wineWow64Packages.stable
-    winetricks
 
     anki-bin # study
     stellarium
-    qgis
     bc
     goldendict-ng
     zotero

@@ -14,6 +14,10 @@
       "docker"
       "networkmanager"
       "input"
+      "kvm"
+      "video"
+      "render"
+      "libvirtd"
     ];
     packages =
       (with pkgs; [
@@ -62,9 +66,13 @@
         gnumake
         cmake
         xmake
+        clang-tools
+        bear
+        dotnet-sdk
         uv
         (python314.withPackages (
           python-pkgs: with python-pkgs; [
+            python-lsp-server
             xlrd
             openpyxl
             pandas
@@ -72,6 +80,8 @@
             pyyaml
             flask
             django
+            requests
+            websockets
             beautifulsoup4
             lxml
             modelscope
@@ -87,6 +97,7 @@
         nodejs
         pnpm
         android-tools
+        scrcpy
         aapt
         apktool
         apksigner
@@ -125,6 +136,7 @@
         alacritty
         picom
         polybar
+        betterlockscreen
         wl-clipboard # wayland sway
         xwayland
         swaybg
@@ -160,6 +172,17 @@
         flatpak # pkgs manager
 
         # libuchardet # tools
+        (qgis.override {
+          extraPythonPackages = ps: [
+            ps.pyproj
+            ps.skyfield
+            ps.timezonefinder
+          ];
+        })
+        wineWow64Packages.stable
+        winetricks
+        appimage-run
+        filezilla
 
         # etc.
         # overlays
@@ -208,6 +231,9 @@
       export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
       export GO111MODULE=on
       export GOPROXY=https://goproxy.cn
+      export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
+      export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
+      export CHROME_EXECUTABLE=$(which chromium)
       function y() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
         yazi "$@" --cwd-file="$tmp"
@@ -226,20 +252,33 @@
     '';
 
   };
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
   programs.tcpdump.enable = true;
   programs.arp-scan.enable = true;
   programs.traceroute.enable = true;
   programs.firefox.enable = true;
   programs.chromium.enable = true;
+  programs.i3lock.enable = true;
+  security.pam.services.i3lock-color.enable = true;
+  programs.wireshark.enable = true;
+  programs.bat.enable = true;
+  programs.virt-manager.enable = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [
+        pkgs.icu
+        pkgs.libxcrypt-legacy
+      ];
+    };
+  };
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
   programs.steam = {
     enable = true;
   };
-  programs.wireshark.enable = true;
-  programs.bat.enable = true;
   programs.clash-verge = {
     enable = true;
     package = pkgs.clash-verge-rev;
@@ -265,6 +304,10 @@
   services.flatpak.enable = true;
   services.gnome.gnome-keyring.enable = true;
   boot.supportedFilesystems = [ "ntfs" ];
+  systemd.tmpfiles.rules = [
+    "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware"
+  ];
+
   # services.nginx.enable = true;
   # services.mongodb.enable = true;
   # services.gns3-server = {
