@@ -9,6 +9,8 @@
   imports = [ ../../pkgs ];
   users.users.irendy = {
     isNormalUser = true;
+    shell = pkgs.zsh;
+    useDefaultShell = false;
     extraGroups = [
       "wheel"
       "docker"
@@ -50,13 +52,13 @@
         hledger-ui
 
         # dev
-        # rustup
-        rustc
-        rust-analyzer
-        rustfmt
-        cargo
-        clippy
-        rustPlatform.rustLibSrc
+        rustup
+        # rustc
+        # rust-analyzer
+        # rustfmt
+        # cargo
+        # clippy
+        # rustPlatform.rustLibSrc
         R
         ruff
         carapace
